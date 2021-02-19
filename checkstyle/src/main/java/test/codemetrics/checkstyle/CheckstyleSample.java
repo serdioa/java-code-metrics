@@ -17,7 +17,7 @@ public class CheckstyleSample {
 
 
     /**
-     * A method with a name which violates Checkstyle rules and will not trigger a Checkstyle warning.
+     * A method with a name which violates Checkstyle rules and triggers a Checkstyle warning.
      *
      * @return a dummy value.
      */
