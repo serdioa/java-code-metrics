@@ -7,6 +7,9 @@
 
     <property name="severity" value="warning"/>
 
+    <!-- Allows to suppress Checkstyle warnings with annotations -->
+    <module name="SuppressWarningsFilter" />
+
     <module name="TreeWalker">
         <module name="RegexpSinglelineJava">
             <property name="severity" value="warning"/>
@@ -19,6 +22,16 @@
             <property name="format" value="^[a-z][a-z0-9][a-zA-Z0-9_]*$"/>
             <message key="name.invalidPattern"
                      value="Method name ''{0}'' must match pattern ''{1}''."/>
+        </module>
+
+        <!-- Required for SuppressWarningsFilter. -->
+        <module name="SuppressWarningsHolder"/>
+
+        <!-- Allows to suppress Checkstyle warnings with comments. -->
+        <module name="SuppressionCommentFilter">
+            <property name="offCommentFormat" value="CHECKSTYLE.OFF\: ([\w\|]+)"/>
+            <property name="onCommentFormat" value="CHECKSTYLE.ON\: ([\w\|]+)"/>
+            <property name="checkFormat" value="$1"/>
         </module>
     </module>
 
