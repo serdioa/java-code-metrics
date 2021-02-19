@@ -15,6 +15,13 @@
         <javac.target>1.8</javac.target>
     </properties>
 
+    <distributionManagement>
+        <site>
+            <id>${project.artifactId}-site</id>
+            <url>${project.baseUri}</url>
+        </site>
+    </distributionManagement>
+
     <modules>
         <module>checkstyle</module>
         <module>pmd</module>
