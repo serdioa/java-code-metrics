@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ruleset xmlns="http://pmd.sourceforge.net/ruleset/2.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         name="pmd"
+         xsi:schemaLocation="http://pmd.sourceforge.net/ruleset/2.0.0 http://pmd.sourceforge.net/ruleset_2_0_0.xsd">
+    <description>PMD ruleset derived from RxJava project</description>
+
+    <rule ref="category/java/bestpractices.xml">
+        <exclude name="AccessorMethodGeneration"/>
+
+        <!-- Although reassigning parameters in some cases may be hard to follow, in other cases, such as setting
+             default values of parameters if null is specified, reassigning may actually improve the code. -->
+        <exclude name="AvoidReassigningParameters"/>
+
+        <!-- Although varargs are very convenient where they fit, there are many perfectly legitimate cases
+             when arrays are used as is. -->
+        <exclude name="UseVarargs"/>
+    </rule>
+
+    <rule ref="category/java/codestyle.xml">
+        <!-- Allow default constructors. -->
+        <exclude name="AtLeastOneConstructor"/>
+
+        <!-- Calling default super constructor bloats the code without any benefits. -->
+        <exclude name="CallSuperInConstructor"/>
+
+        <!-- This rule requires that in "if-else" the "if" condition does not contain a negation.
+             The rule looks sound on the first glance, but it contradicts the principle that the "if" condition
+             normally should handle the most common, or the standard case, whereas "else" handles less usual
+             or exceptional case. -->
+        <exclude name="ConfusingTernary"/>
+
+        <!-- Package-private access is perfectly OK. -->
+        <exclude name="DefaultPackage" />
+
+        <!-- Allow empty optional hooks in abstract classes. -->
+        <exclude name="EmptyMethodInAbstractClassShouldBeAbstract"/>
+
+        <!-- In some cases multi-character generic names are better. -->
+        <exclude name="GenericsNaming"/>
+
+        <!-- Do not use final for local variables where not required. -->
+        <exclude name="LocalVariableCouldBeFinal"/>
+
+        <!-- Allow more flexibility for local variables, including underscope characters etc. -->
+        <exclude name="LocalVariableNamingConventions"/>
+
+        <!-- In some cases a long name is the only way to make variable usage clear.
+             If variables with long names are used sparingly, it is OK. -->
+        <exclude name="LongVariable"/>
+
+        <!-- Do not use final for method arguments where not required. -->
+        <exclude name="MethodArgumentCouldBeFinal"/>
+
+        <!-- In many cases multiple return statements improve code readability. -->
+        <exclude name="OnlyOneReturn"/>
+
+        <!-- Allow short class, method and variable names if they are semantically correct. -->
+        <exclude name="ShortClassName"/>
+        <exclude name="ShortMethodName"/>
+        <exclude name="ShortVariable"/>
+
+        <!-- Allow using explicit empty public constructors in favour of implicit default constructors. -->
+        <exclude name="UnnecessaryConstructor"/>
+
+        <!-- Using a named local variable for a return value may improve readability and ease debugging. -->
+        <exclude name="UnnecessaryLocalBeforeReturn"/>
+
+        <!-- Sometimes extra parentheses improve code readability. -->
+        <exclude name="UselessParentheses"/>
+
+        <!-- Deprecated, superseded by more detailed rules. -->
+        <exclude name="VariableNamingConventions"/>
+    </rule>
+    <rule ref="category/java/codestyle.xml/ClassNamingConventions">
+        <properties>
+            <!-- Use for utility classes the same naming pattern as for all other classes.
+                 By default the rule requires "Util" or "Helper" at the end. -->
+            <property name="utilityClassPattern" value="[A-Z][a-zA-Z0-9]*" />
+        </properties>
+    </rule>
+    <rule ref="category/java/codestyle.xml/CommentDefaultAccessModifier">
+        <properties>
+            <!-- Comments recognized for intended package private access. -->
+            <property name="regex" value="\/\*\s+(default|package|package private)\s+\*\/" />
+        </properties>
+    </rule>
+    <rule ref="category/java/codestyle.xml/LinguisticNaming">
+        <properties>
+            <!-- This rule checks that setters do not return any value. This contradicts two useful patterns:
+                 a setter may return the previous value, or a setter may return the object itself for chaining. -->
+            <property name="checkSetters" value="false" />
+        </properties>
+    </rule>
+
+    <rule ref="category/java/design.xml">
+        <!-- Allow complex logic. -->
+        <exclude name="CyclomaticComplexity"/>
+
+        <!-- Simple struct-like classes are sometimes useful. -->
+        <exclude name="DataClass"/>
+
+        <!-- Long and complex classes are sometimes unavoidable. -->
+        <exclude name="ExcessiveClassLength"/>
+
+        <!-- Long and complex methods are sometimes unavoidable. -->
+        <exclude name="ExcessiveMethodLength"/>
+
+        <!-- Long lists of parameters should be avoided, but are sometimes required. -->
+        <exclude name="ExcessiveParameterList"/>
+
+        <!-- Classes may contain many public methods. -->
+        <exclude name="ExcessivePublicCount"/>
+
+        <!-- Used metrics are not clearly explained. -->
+        <exclude name="GodClass"/>
+
+        <!-- Allow chained method calls. -->
+        <exclude name="LawOfDemeter"/>
+
+        <!-- Requires explicit configuration, difficult to maintain. -->
+        <exclude name="LoosePackageCoupling"/>
+
+        <!-- Allow complex logic. -->
+        <exclude name="ModifiedCyclomaticComplexity"/>
+
+        <!-- Allow complex logic. -->
+        <exclude name="NcssConstructorCount"/>
+        <exclude name="NcssCount"/>
+        <exclude name="NcssMethodCount"/>
+        <exclude name="NcssTypeCount"/>
+        <exclude name="NPathComplexity"/>
+
+        <!-- Ternary expressions which trigger this rule may improve readability. -->
+        <exclude name="SimplifiedTernary"/>
+
+        <!-- Allow complex logic. -->
+        <exclude name="StdCyclomaticComplexity"/>
+
+        <!-- Class may contain many fields and methods. -->
+        <exclude name="TooManyFields"/>
+        <exclude name="TooManyMethods"/>
+    </rule>
+
+    <rule ref="category/java/errorprone.xml">
+        <!-- Using assignment in "if", "for", "while" conditional is useful in some cases. -->
+        <exclude name="AssignmentInOperand"/>
+
+        <!-- In some cases using field name identical to method name is common, such as "size" for collections,
+             or "writeLock" for locks. -->
+        <exclude name="AvoidFieldNameMatchingMethodName"/>
+
+        <!-- Normally avoiding duplicate string literals is a Good Thing. Unfortunately implementation of this rule
+             in PMD is too naive: it triggers on annotations, for example if several methods are annotated
+             to ignore the same PMD rule. -->
+        <exclude name="AvoidDuplicateLiterals"/>
+
+        <!-- Avoiding literals in all "if" conditions and using constants instead often unnecessary complicates
+             the code. -->
+        <exclude name="AvoidLiteralsInIfCondition"/>
+
+        <!-- Should apply only to JavaBeans, not applicable for all classes. -->
+        <exclude name="BeanMembersShouldSerialize"/>
+
+        <!-- Rules specific to Android. -->
+        <exclude name="CallSuperFirst"/>
+        <exclude name="CallSuperLast"/>
+
+        <!-- There are many legitimate cases when we must compare object references. -->
+        <exclude name="CompareObjectsWithEquals"/>
+
+        <!-- Not usable. -->
+        <exclude name="DataflowAnomalyAnalysis"/>
+
+        <!-- Instance logger is useful in classes designed for inheritance. -->
+        <exclude name="LoggerIsNotStaticFinal"/>
+
+        <!-- Instance initializer blocks allows for elegant constructions in some cases. -->
+        <exclude name="NonStaticInitializer"/>
+
+        <!-- Null assignment may be used to encourage GC. -->
+        <exclude name="NullAssignment"/>
+
+        <!-- This rule defines strange restrictions on logger names and usage. -->
+        <exclude name="ProperLogger"/>
+    </rule>
+
+    <rule ref="category/java/multithreading.xml">
+        <!-- Very naive rules which may be useful for novice code, but are useless when dealing with complex multithreading. -->
+        <exclude name="AvoidSynchronizedAtMethodLevel"/>
+        <exclude name="AvoidUsingVolatile"/>
+
+        <!-- Applies only in J2EE environment. -->
+        <exclude name="DoNotUseThreads"/>
+
+        <!-- This rule is plain stupud: ConcurrentHashMap should be used only when semantically required. -->
+        <exclude name="UseConcurrentHashMap"/>
+
+        <!-- Very naive rules: using notify() or notifyAll() is determined by the application logic. -->
+        <exclude name="UseNotifyAllInsteadOfNotify"/>
+    </rule>
+
+    <rule ref="category/java/performance.xml">
+        <!-- Useful only in trivial cases. -->
+        <exclude name="AvoidInstantiatingObjectsInLoops"/>
+
+        <!-- Sometimes required to split a very long line in two. -->
+        <exclude name="ConsecutiveLiteralAppends"/>
+    </rule>
+
+    <rule ref="category/java/security.xml" />
+
+</ruleset>
