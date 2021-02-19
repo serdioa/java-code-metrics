@@ -4,7 +4,7 @@ package test.codemetrics.checkstyle;
 /**
  * Sample class for testing Checkstyle.
  */
-public class CheckstyleSampleFirst {
+public class CheckstyleSample {
 
     /**
      * A method with a valid name which will not trigger a Checkstyle warning.

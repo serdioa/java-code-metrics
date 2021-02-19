@@ -4,7 +4,7 @@ package test.codemetrics.pmd;
 /**
  * Sample class for testing PMD.
  */
-public class PmdSampleFirst {
+public class PmdSample {
     public void unusedLocalVariable() {
         int i;
     }
