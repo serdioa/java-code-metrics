@@ -7,7 +7,7 @@ package test.codemetrics.pmd;
 public class PmdSample {
 
     /**
-     * A method with a valid name which will not trigger a PMD warning.
+     * A method with a valid name does not trigger a PMD warning.
      *
      * @return a dummy value.
      */

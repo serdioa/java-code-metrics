@@ -7,7 +7,7 @@ package test.codemetrics.checkstyle;
 public class CheckstyleSample {
 
     /**
-     * A method with a valid name which will not trigger a Checkstyle warning.
+     * A method with a valid name does not trigger a Checkstyle warning.
      *
      * @return a dummy value.
      */
