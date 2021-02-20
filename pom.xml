@@ -44,8 +44,8 @@
     <dependencies>
         <dependency>
             <!-- Required to turn off selected SpotBugs warnings. -->
-                <groupId>com.github.spotbugs</groupId>
-                <artifactId>spotbugs-annotations</artifactId>
+            <groupId>com.github.spotbugs</groupId>
+            <artifactId>spotbugs-annotations</artifactId>
         </dependency>
     </dependencies>
 
@@ -110,6 +110,14 @@
                     <artifactId>maven-checkstyle-plugin</artifactId>
                     <version>3.1.2</version>
                     <dependencies>
+
+                        <!-- Explicitly depend on a more recent Checkstyle version. -->
+                        <dependency>
+                            <groupId>com.puppycrawl.tools</groupId>
+                            <artifactId>checkstyle</artifactId>
+                            <version>8.40</version>
+                        </dependency>
+
                         <dependency>
                             <groupId>test.code-metrics</groupId>
                             <artifactId>build-tools</artifactId>
