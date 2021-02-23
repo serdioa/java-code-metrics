@@ -29,6 +29,6 @@ public class JUnitSampleTest {
 
     @Test
     public void testBranch() {
-        assertEquals(5, this.sample.add(2, 3));
+        assertEquals(5, this.sample.branch(2, 3));
     }
 }
