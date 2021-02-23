@@ -4,7 +4,7 @@ package test.codemetrics.junit;
 /**
  * Sample class for testing JUnit.
  */
-public class JUnitSample {
+public final class CalculatorSample implements Calculator {
 
     public int add(int i, int j) {
         return i + j;

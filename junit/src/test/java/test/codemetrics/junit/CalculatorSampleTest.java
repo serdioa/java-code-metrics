@@ -10,14 +10,14 @@ import org.junit.Before;
 /**
  * Sample class for testing JUnit.
  */
-public class JUnitSampleTest {
+public class CalculatorSampleTest {
 
-    private JUnitSample sample;
+    private CalculatorSample sample;
 
 
     @Before
     public void setUp() {
-        this.sample = new JUnitSample();
+        this.sample = new CalculatorSample();
     }
 
 
@@ -27,6 +27,7 @@ public class JUnitSampleTest {
     }
 
 
+    // Tests only one branch of two available in the method.
     @Test
     public void testBranch() {
         assertEquals(5, this.sample.branch(2, 3));
